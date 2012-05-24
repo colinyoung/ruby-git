@@ -51,6 +51,13 @@ class Test::Unit::TestCase
     FileUtils.rm_r(tmp_path) if remove_after
   end
   
+  def in_submodule_test_repo
+    filename = File.expand_path(File.dirname(__FILE__) + '/files/submodule_test_repo')
+    Dir.chdir filename do
+      yield filename
+    end
+  end
+  
   
   def new_file(name, contents)
     File.open(name, 'w') do |f|

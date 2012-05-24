@@ -552,7 +552,10 @@ module Git
     def tag(tag)
       command('tag', tag)
     end
-
+    
+    def submodules
+      command_lines('submodule status')
+    end
     
     def fetch(remote)
       command('fetch', remote)

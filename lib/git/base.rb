@@ -472,7 +472,12 @@ module Git
     def current_branch
       self.lib.branch_current
     end
-
+    
+    # returns list of submodules
+    def submodules
+      g = Git::Submodules.new(self)
+      g.list
+    end
     
   end
   
